@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.addList-container {
+    background-color: #eeeaf6;
+    padding: 20px;
+    border-radius: 20px;
+    width: 400px;
+    height: 600px;
+    text-align: center;
+}
+
+.addList-container h1 {
+    margin-bottom: 20px;
+    font-family: 'superB';
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'superB';
+}
+
+.input-group label strong {
+    color: red;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'superR';
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.save-button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #80ec6a;
+    color: black;
+    font-size: 16px;
+    font-family: 'superB';
+}
+
+.save-button:hover {
+    background-color: #57a348;
+}
+
+.delete-button {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f3828d;
+    color: black;
+    font-size: 16px;
+    font-family: 'superB';
+}
+
+.delete-button:hover {
+    background-color: #cd4653;
+}

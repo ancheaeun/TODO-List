@@ -28,7 +28,8 @@
                 <label for="비밀번호">비밀번호 확인<strong> * </strong></label>
                 <input type="비밀번호" id="비밀번호 확인" name="비밀번호 확인" required>
             </div>
-            <button type="submit">완료</button>
+            <!-- 회원가입 완료되면 그 전 로그인 창으로 돌아감 -->
+            <button type="submit" onclick="history.back(-1); return false;">완료</button>
         </form>
     </div>
     <script src="javascript/register_script.js"></script>

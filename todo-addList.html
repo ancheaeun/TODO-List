@@ -5,12 +5,43 @@
         <meta charset="utf-8">
         <meta name="todolist" content="width=device-width, initial-scale=1.0">
         <title>To-do List</title>
-        <link rel="stylesheet" href="css/main_style.css">
+        <link rel="stylesheet" href="css/addList_style.css">
         <link rel="stylesheet" href="font/fonts.css">
         <link rel="icon" href="사진/링크아이콘.png" type="image/png" sizes="16x16">
         <meta name="description" content>
     </head>
     <body>
-        
+        <div class="addList-container">
+            <h1>할 일 추가</h1>
+            <form id="addListForm">
+                <div class="input-group">
+                    <label for="날짜">추가할 날짜<strong> * </strong></label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="input-group">
+                    <label for="할 일">할 일<strong> * </strong></label>
+                    <input type="text" id="할 일" name="할 일" required>
+                </div>
+                <div class="input-group">
+                    <label for="종류">종류<strong> * </strong></label>
+                    <form>
+                        <!-- 종류는 따로 더 추가할 수 있도록 해도 될 듯. 추가하는 거에 따라 option이 추가되고 안 되고 할 수 있을까요? -->
+                        <select name="종류">
+                            <option value="1">공부</option>
+                            <option value="2">일상</option>
+                            <option value="3">여행</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="input-group">
+                    <label for="메모">메모(세부사항)</label>
+                    <input type="text" id="메모" name="메모" style="height: 180px;">
+                </div>
+                <div class="button-group">
+                    <button type="button" class="save-button">저장</button>
+                    <button type="button" class="delete-button">삭제</button>
+                </div>
+            </form>
+        </div>
     </body>
 </html>

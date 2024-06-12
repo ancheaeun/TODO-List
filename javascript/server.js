@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const path = require('path'); 
 
 const app = express();
 const http_port = 4000;
@@ -24,7 +25,17 @@ db.connect(err => {
     console.log('MySQL Connected...');
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 app.get('/', (req,res) =>{
+    res.sendFile(path.join(__dirname, 'login', 'todo_login.html'));
+    // 파일을 보내는 부분과 데이터베이스 쿼리를 실행하는 부분이 분리되어야 합니다.
+});
+
+// 사용자 로그인 처리
+app.post('/login', (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -43,19 +54,12 @@ app.get('/', (req,res) =>{
             res.json({ message: 'Login successful' });
         } else {
             console.log('Invalid username or password for user:', username);
-            res.json({ message: 'Invalid username or password' });
+            res.status(401).json({ message: 'Invalid username or password' });
         }
     });
 });
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// 로그인 엔드포인트
-// app.post('/login', (req, res) => {
-   
-// });
-
+// 서버를 시작합니다.
 app.listen(http_port, () => {
     console.log(`Server running on port ${http_port}`);
 });

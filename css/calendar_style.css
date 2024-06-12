@@ -35,8 +35,6 @@ section {
     height: 630px;
     text-align: center;
     align-items: right;
-    /* 스크롤 가능하도록 */
-    overflow-y: scroll;
 }
 
 .input-group {
@@ -91,78 +89,66 @@ section {
     color: black;
 }
 
-.main-content {
-    flex-grow: 1;
-    padding: 15px;
-    overflow-y: auto;
+/* 달력 */
+.calendarBox {
+    color: black;
 }
 
-.main-content hr {
-    border: 1.5px solid #D9D9D9;
-    margin-top: 25px;
+.calendarBox #month {
+    display: inline-block;
+    position: relative;
+    float: center;
+    margin-left: 10px;
 }
 
-#main-font {
+#month p {
     margin-top: 0;
     font-family: 'superB';
     font-weight: bold;
     font-size: 26px;
 }
 
-.todo-section {
-    margin-top: 5px;
+.calendarBox #year {
+    display: block;
+    position: relative;
+    float: center;
+    margin-top: 20px;
+    margin-left: 10px;
 }
 
-.date {
-    margin-bottom: 10px;
-    text-align: left;
+#year p {
+    margin-top: 0;
+    font-family: 'superB';
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.calendarBox table {
+    border-collapse: collapse;
+    border: none;
+    width: 100%;
+}
+
+.calendarBox th {
+    border: none;
+    height: 30px;
+    padding: 8px;
+    font-weight: normal;
+    text-align: center;
     font-family: 'superB';
 }
 
-.todo-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.todo-item {
-    background-color: #E6D3F4;
-    padding: 10px;
-    border-radius: 15px;
+.calendarBox td {
+    border: none;
+    height: 70px;
+    padding: 8px;
     text-align: center;
     font-family: 'superR';
 }
 
-.navigation-buttons {
-    display: flex;
-    justify-content: space-between;
-}
-
-.nav-button {
-    padding: 3px;
-    font-size: 17px;
-    font-family: 'superB';
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 55px;
-    height: 40px;
-}
-
-#prev-week {
-    background-color: #fccf9c;
+/* 오늘 날짜 배경색 지정 */
+.calendarBox #today {
+    background-color: rgba(203, 247, 121, 0.637);
+    border-radius: 10%;
     color: black;
-}
-
-#prev-week:hover {
-    background-color: #f7a84e;
-}
-
-#next-week {
-    background-color: #9df3b1;
-    color: black;
-}
-
-#next-week:hover {
-    background-color: #3ae863;
 }

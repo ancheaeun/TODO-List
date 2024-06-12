@@ -1,11 +1,11 @@
-<!--할 일 리스트-->
+<!-- 메인 캘린더 -->
 <!DOCTYPE html>
 <html lang="ko-KR">
     <head>
         <meta charset="utf-8">
         <meta name="todolist" content="width=device-width, initial-scale=1.0">
         <title>To-do List</title>
-        <link rel="stylesheet" href="css/main_style.css">
+        <link rel="stylesheet" href="css/calendar_style.css">
         <link rel="stylesheet" href="font/fonts.css">
         <link rel="icon" href="사진/링크아이콘.png" type="image/png" sizes="16x16">
         <meta name="description" content>
@@ -39,18 +39,14 @@
             </div>
         </nav>
         <section>
-            <div class="main-content" id="main-content">
-                <div class="navigation-buttons">
-                    <button id="prev-week" class="nav-button">이전</button>
-                    <p id="main-font">What's To-Do?</p>
-                    <button id="next-week" class="nav-button">다음</button>
-                </div>
-                <hr>
-                <div class="todo-section" id="todo-section">
-                    <!-- 여기서 날짜와 할 일 리스트가 추가됩니다. -->
+            <div class="main-content">
+                <div class="calendarBox">
+                    <div id="year"></div>
+                    <div id="month"></div>
+                    <div id="calendar"></div>
                 </div>
             </div>
         </section>
-        <script src="javascript/main_script.js"></script>
+        <script src="javascript/calendar_script.js"></script>
     </body>
 </html>

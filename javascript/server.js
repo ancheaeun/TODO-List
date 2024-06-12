@@ -27,7 +27,7 @@ db.connect(err => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'public')));    //파일 가져오기
 
 app.get('/', (req,res) =>{
     res.sendFile(path.join(__dirname, 'login', 'todo_login.html'));
@@ -63,6 +63,44 @@ app.post('/login', (req, res) => {
 
 app.get('/todo-register.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'login', 'todo_register.html'));
+});
+
+// 아이디 중복확인
+app.post('/check-username', (req, res) => {
+    const username = req.body.username;
+
+    const query = 'SELECT * FROM UserInfo WHERE ID = ?';
+    db.query(query, [username], (err, results) => {
+        if (err) {
+            console.error('Database query error:', err);
+            res.status(500).json({ message: 'Server error' });
+            return;
+        }
+
+        if (results.length > 0) {
+            res.json({ exists: true });
+        } else {
+            res.json({ exists: false });
+        }
+    });
+});
+// 사용자 회원가입 처리
+app.post('/register', (req, res) => {
+    const name = req.body.name;
+    const username = req.body.username;
+    const password = req.body.password;
+
+    const query = 'INSERT INTO UserInfo (Name, ID, PW) VALUES (?, ?, ?)';
+    db.query(query, [name, username, password], (err, results) => {
+        if (err) {
+            console.error('Database insertion error:', err);
+            res.status(500).json({ message: 'Server error' });
+            return;
+        }
+
+        console.log('User registered successfully:', username);
+        res.json({ message: 'Registration successful' });
+    });
 });
 
 app.get('/todo_main.html', (req, res) => {

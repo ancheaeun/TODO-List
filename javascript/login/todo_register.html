@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List Register</title>
-    <link rel="stylesheet" href="css/register_style.css">
-    <link rel="icon" href="사진/링크아이콘.png" type="image/png" sizes="16x16">
+    <link rel="stylesheet" href="/css/register_style.css">
+    <link rel="icon" href="/사진/링크아이콘.png" type="image/png" sizes="16x16">
 </head>
 <body>
     <div class="register-container">
@@ -13,25 +13,25 @@
         <form id="registerForm">
             <div class="input-group">
                 <label for="이름">이름<strong> * </strong></label>
-                <input type="text" id="이름" name="이름" required>
+                <input type="text" id="이름" name="name" required>
             </div>
             <div class="input-group">
                 <label for="아이디">아이디<strong> * </strong></label>
-                <input type="text" id="아이디" name="아이디" required>
+                <input type="text" id="아이디" name="username" required>
                 <button id="id-button" type="button">중복확인</button>
             </div>
             <div class="input-group">
                 <label for="비밀번호">비밀번호<strong> * </strong></label>
-                <input type="비밀번호" id="비밀번호" name="비밀번호" required>
+                <input type="password" id="비밀번호" name="password" required>
             </div>
             <div class="input-group">
-                <label for="비밀번호">비밀번호 확인<strong> * </strong></label>
-                <input type="비밀번호" id="비밀번호 확인" name="비밀번호 확인" required>
+                <label for="비밀번호 확인">비밀번호 확인<strong> * </strong></label>
+                <input type="password" id="비밀번호 확인" name="confirmPassword" required>
             </div>
             <!-- 회원가입 완료되면 그 전 로그인 창으로 돌아감 -->
-            <button type="submit" onclick="history.back(-1); return false;">완료</button>
+            <button type="submit">완료</button>
         </form>
     </div>
-    <script src="javascript/register_script.js"></script>
+    <script src="/javascript/register_script.js"></script>
 </body>
 </html>

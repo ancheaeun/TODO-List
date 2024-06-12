@@ -51,12 +51,22 @@ app.post('/login', (req, res) => {
 
         if (results.length > 0) {
             console.log('Login successful for user:', username);
+            // 로그인 성공 시 응답으로 성공 메시지를 보냅니다.
+            console.log('로그인 성공');
             res.json({ message: 'Login successful' });
         } else {
             console.log('Invalid username or password for user:', username);
             res.status(401).json({ message: 'Invalid username or password' });
         }
     });
+});
+
+app.get('/todo-register.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login', 'todo_register.html'));
+});
+
+app.get('/todo_main.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login', 'todo_main.html'));
 });
 
 // 서버를 시작합니다.

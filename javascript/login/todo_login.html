@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List Login</title>
+    <link rel="stylesheet" href="css/login_style.css">
+    <link rel="icon" href="사진/링크아이콘.png" type="image/png" sizes="16x16">
+</head>
+<body>
+    <div class="login-container">
+        <h1>로그인</h1>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p>계정이 없으신가요? <a href="todo-register.html">회원가입</a></p>
+            <p><a href="#">비밀번호를 잊어버리셨나요?</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // 서버로 POST 요청을 보냅니다.
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 서버로부터 받은 응답을 처리합니다.
+                if (data.message === 'Login successful') {
+                    // 로그인 성공 시 메인 페이지로 이동합니다.
+                    window.location.href = '/todo_main.html';
+                } else {
+                    alert('로그인에 실패했습니다. 다시 시도해 주세요.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('서버 오류가 발생했습니다.');
+            });
+        });
+    </script>
+</body>
+</html>

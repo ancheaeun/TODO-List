@@ -2,9 +2,15 @@ body {
     font-family: Arial, sans-serif;
     background-color: #F8F8F8;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.container {
+    display: flex;
+    width: 100%;
     height: 100vh;
+    /* 화면 전체 높이를 차지하도록 설정 */
 }
 
 .box1 {
@@ -13,17 +19,35 @@ body {
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     width: 250px;
-    height: 665px;
+    height: 100%;
+    /* 화면 전체 높이를 차지하도록 설정 */
+    display: flex;
+    flex-direction: column;
 }
 
 .box2 {
-    position: absolute;
     background-color: #D3DCF4;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
     width: 250px;
-    height: 570px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
     margin-top: 5px;
+}
+
+.main-header {
+    text-align: center;
+    background-color: #F8F8F8;
+    width: 100%;
+    padding: 20px;
+    color: #9473FF;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-family: 'superB';
+    font-size: 36px;
 }
 
 section {
@@ -31,12 +55,27 @@ section {
     border-radius: 40px;
     margin-left: 15px;
     padding: 20px;
-    width: 800px;
-    height: 630px;
+    flex-grow: 1;
     text-align: center;
     align-items: right;
     /* 스크롤 가능하도록 */
     overflow-y: scroll;
+}
+
+.footer {
+    background-color: #b8a2ff;
+    width: 100%;
+    padding: 5px;
+    /* 높이를 줄이기 위해 패딩을 5px로 설정 */
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+#quote {
+    margin: 0;
+    font-size: 16px;
 }
 
 .input-group {
@@ -145,7 +184,7 @@ section {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 55px;
+    width: 70px;
     height: 40px;
 }
 
@@ -165,4 +204,92 @@ section {
 
 #next-week:hover {
     background-color: #3ae863;
+}
+
+body.dark-mode {
+    background-color: #181818;
+    color: #ffffff;
+}
+
+.dark-mode .main-header,
+.dark-mode .footer {
+    background-color: #282828;
+}
+
+.dark-mode .box1,
+.dark-mode .box2 {
+    background-color: #282828;
+}
+
+.dark-mode .menu-item a,
+.dark-mode .menu-item button {
+    color: #ffffff;
+}
+
+.dark-mode .todo-item {
+    background-color: #3a3a3a;
+}
+
+.dark-mode-button {
+    background-color: #3a3a3a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+}
+
+.dark-mode-button:hover {
+    background-color: #333333;
+}
+
+#quote {
+    margin: 0;
+    font-size: 16px;
+}
+
+.nav-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: 'superB';
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#prev-week {
+    background-color: #007BFF;
+    color: white;
+}
+
+#prev-week:hover {
+    background-color: #0056b3;
+}
+
+#next-week {
+    background-color: #28a745;
+    color: white;
+}
+
+#next-week:hover {
+    background-color: #218838;
+}
+
+.dark-mode #prev-week,
+.dark-mode #next-week {
+    background-color: #3a3a3a;
+    color: white;
+}
+
+.dark-mode #prev-week:hover,
+.dark-mode #next-week:hover {
+    background-color: #333333;
+}
+
+.dark-mode #main-font,
+.dark-mode .date {
+    color: #3a3a3a;
 }
